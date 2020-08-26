@@ -29,3 +29,13 @@ describe '.create' do
     expect(bookmark.url).to eq 'http://wwww.testbookmark.com'
   end 
 end 
+
+describe '.delete' do
+  it 'deletes the selected bookmark' do
+    bookmark = Bookmark.create(title: 'Makers Academy', url: 'http://www.makersacademy.com')
+
+    Bookmark.delete(id: bookmark.id)
+
+    expect(Bookmark.all.length).to eq 0
+  end
+end
