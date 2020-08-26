@@ -5,7 +5,7 @@ ENV['ENVIRONMENT'] = 'test'
 
 RSpec.configure do |config|
   config.before(:each) do
- 
+    setup_test_database
   end
 end
 
