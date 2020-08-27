@@ -2,7 +2,7 @@ feature 'Updating a bookmark' do
   scenario 'A user can update a bookmark' do
     bookmark = Bookmark.create(url: 'http://makersacademy.com', title: 'Makers Academy')
     visit('/bookmarks')
-    expect(page).to have_link('Makers Academy', href: 'http://www.makersacademy.com')
+    expect(page).to have_link('Makers Academy', href: 'http://makersacademy.com')
 
     first('.bookmark').click_button 'Edit'
     expect(current_path).to eq "/bookmarks/#{bookmark.id}/edit"
@@ -12,7 +12,7 @@ feature 'Updating a bookmark' do
     click_button('Submit')
 
     expect(current_path).to eq '/bookmarks'
-    expect(page).not_to have_link('Makers Academy'. href: 'http://www.makersacademy.com')
+    expect(page).not_to have_link('Makers Academy', href: 'http://makersacademy.com')
     expect(page).to have_link('Snakers Academy', href: 'http://www.snakersacademy.com')
   end
 end
