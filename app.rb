@@ -11,7 +11,7 @@ class BookmarkManager < Sinatra::Base
   end
 
   get '/bookmarks' do
-    @BM = Bookmark.all
+    @bookmark = Bookmark.all
     erb :bookmarks
   end
 
@@ -30,7 +30,7 @@ class BookmarkManager < Sinatra::Base
   end
 
   get '/bookmarks/:id/edit' do
-    @bookmark_id = params[:id]
+    @bookmark = Bookmark.find(id: params[:id])
     erb :'bookmarks/edit'
   end
 
